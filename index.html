@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algorithm Visualizer — Sorting &amp; Pathfinding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>Algorithm Visualizer</h1>
+    <p>Sorting algorithms and grid pathfinding, animated step by step.</p>
+  </header>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" data-mode="sorting">Sorting</button>
+    <button class="mode-tab" data-mode="pathfinding">Pathfinding</button>
+  </div>
+
+  <section class="panel active" id="sortingPanel">
+    <div class="controls">
+      <div class="ctrl-group">
+        <label for="algoSelect">Algorithm</label>
+        <select id="algoSelect">
+          <option value="bubble">Bubble Sort</option>
+          <option value="selection">Selection Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="quick">Quick Sort</option>
+        </select>
+      </div>
+      <div class="ctrl-group">
+        <label for="sizeRange">Array Size: <span id="sizeVal">40</span></label>
+        <input type="range" id="sizeRange" min="10" max="100" value="40">
+      </div>
+      <div class="ctrl-group">
+        <label for="speedRange">Speed</label>
+        <input type="range" id="speedRange" min="1" max="100" value="60">
+      </div>
+      <button class="btn" id="newArrayBtn">New Array</button>
+      <button class="btn btn-primary" id="sortBtn">▶ Visualize</button>
+    </div>
+
+    <p class="info-line" id="sortInfo"></p>
+    <div class="bars-container" id="barsContainer"></div>
+
+    <div class="legend">
+      <span class="legend-item"><span class="swatch" style="background:var(--blue)"></span>Unsorted</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--amber)"></span>Comparing</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--coral)"></span>Swapping</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--green)"></span>Sorted</span>
+    </div>
+  </section>
+
+  <section class="panel" id="pathPanel">
+    <div class="controls">
+      <div class="ctrl-group">
+        <label for="pathAlgoSelect">Algorithm</label>
+        <select id="pathAlgoSelect">
+          <option value="bfs">Breadth-First Search</option>
+          <option value="dfs">Depth-First Search</option>
+          <option value="dijkstra">Dijkstra</option>
+          <option value="astar">A* Search</option>
+        </select>
+      </div>
+      <div class="ctrl-group">
+        <label for="pathSpeedRange">Speed</label>
+        <input type="range" id="pathSpeedRange" min="1" max="100" value="70">
+      </div>
+      <div class="ctrl-group">
+        <label>Tool</label>
+        <div class="tool-row">
+          <button class="tool-btn active" data-tool="wall">Draw Walls</button>
+          <button class="tool-btn" data-tool="start">Move Start</button>
+          <button class="tool-btn" data-tool="end">Move Target</button>
+        </div>
+      </div>
+      <button class="btn" id="clearWallsBtn">Clear Walls</button>
+      <button class="btn" id="clearPathBtn">Clear Path</button>
+      <button class="btn btn-primary" id="visualizePathBtn">▶ Visualize</button>
+    </div>
+
+    <p class="info-line" id="pathInfo"></p>
+    <div class="grid-wrap">
+      <div class="grid" id="grid"></div>
+    </div>
+    <p class="path-message" id="pathMessage"></p>
+
+    <div class="legend">
+      <span class="legend-item"><span class="swatch" style="background:var(--green)"></span>Start</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--coral)"></span>Target</span>
+      <span class="legend-item"><span class="swatch" style="background:#05060A"></span>Wall</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--blue)"></span>Visited</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--amber)"></span>Shortest Path</span>
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
