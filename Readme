@@ -1,0 +1,46 @@
+# Sorting & Pathfinding Algorithm Visualizer
+
+An interactive web app that visualizes how sorting and graph-search algorithms work, step by step — built with vanilla JavaScript, no frameworks.
+
+🔗 **Live Demo:** https://mashwini37-sudo.github.io/-sort-algorithm-visualizer/
+
+## Features
+
+**Sorting Visualizer**
+- Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort
+- Adjustable array size and animation speed
+- Color-coded states: comparing, swapping, sorted
+- Time/space complexity shown live for the selected algorithm
+
+**Pathfinding Visualizer**
+- Breadth-First Search (BFS), Depth-First Search (DFS), Dijkstra's Algorithm, A* Search
+- Click-and-drag wall drawing
+- Movable start and target nodes
+- Visualizes visited nodes and the final shortest path
+
+## Tech Stack
+- HTML5
+- CSS3
+- Vanilla JavaScript (no frameworks or libraries)
+
+## How It Works
+All animations are built using JavaScript's `async`/`await` with a custom `sleep()` helper, allowing each algorithm step (a comparison, a swap, a visited node) to render to the screen before the next step runs — instead of completing instantly.
+
+The pathfinding grid is represented internally as a 2D array of node objects, each storing its wall/visited/distance state. The four search algorithms differ mainly in **which data structure decides what to explore next**:
+- BFS uses a queue (FIFO)
+- DFS uses a stack (LIFO)
+- Dijkstra always expands the node with the smallest known distance
+- A* expands the node with the smallest (distance so far + estimated distance to target)
+
+## Run It Locally
+No build step or dependencies needed — just open `index.html` in a browser, or clone the repo:
+
+```bash
+git clone https://github.com/mashwini37-sudo/-sort-algorithm-visualizer.git
+cd -sort-algorithm-visualizer
+```
+Then open `index.html` directly in your browser.
+
+## Author
+**Ashwini M K**
+[LinkedIn](https://www.linkedin.com/in/ashwini-m-k-08090a293) · [GitHub](https://github.com/mashwini37-sudo)
